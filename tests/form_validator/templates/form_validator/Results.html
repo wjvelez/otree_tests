@@ -1,0 +1,13 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Resultados
+{% endblock %}
+
+{% block content %}
+    {% for p in group.get_players %}
+      <p>Jugador {{ p.id_in_group }} recibe {{ p.castigo }} puntos de castigo</p>
+    {% endfor %}
+    {% next_button %}
+{% endblock %}

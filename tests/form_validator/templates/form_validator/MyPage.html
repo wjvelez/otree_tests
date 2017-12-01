@@ -1,0 +1,58 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Castigos
+{% endblock %}
+
+{% block content %}
+
+    <form>
+      {% for p in player.get_others_in_group %}
+        <p>{{ p.id_in_group }}</p>
+        <input type="number" class="form-control text-center input-castigo"  name="castigo_jug{{ p.id_in_group }}">
+      {% endfor %}
+    </form>
+    <br>
+    {% next_button %}
+
+{% endblock %}
+
+
+{% block styles %}
+  <style type="text/css">
+  .row{
+    margin: 0 auto;
+  }
+
+  .tabla > thead > tr, .tabla > thead > tr > th{
+    border: 2px solid grey;
+    vertical-align: middle;
+  }
+
+  .tabla > tbody > tr, .tabla > tbody > tr > td{
+    border: 2px solid grey;
+    vertical-align: middle;
+  }
+
+  td.fila-castigo{
+    width: 40%;
+  }
+
+  input[type="number"].form-control {
+    width: 100%;
+  }
+
+  </style>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  $(document).ready(function() {
+    console.log('nadie seleccionado');
+
+  });
+
+</script>
+{% endblock %}
